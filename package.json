@@ -1,0 +1,52 @@
+{
+  "name": "leif-api",
+  "version": "1.0.0",
+  "description": "express",
+  "main": "src/app.ts",
+  "scripts": {
+    "start": "ts-node ./src/app.ts",
+    "dev": "PORT=3010 ts-node-dev --respawn --transpile-only ./src/app.ts",
+    "typeorm:cli": "ts-node ./node_modules/typeorm/cli -f ./ormconfig.json",
+    "migrations:local": "ts-node ./node_modules/typeorm/cli.js migration:run -t 'each'",
+    "migrations": "ts-node ./src/runMigrations.ts",
+    "fixtures": "ts-node ./node_modules/.bin/fixtures -c ./ormconfig.json -s -d fixtures/*.yml",
+    "lint": "eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "build": "tsc -p .",
+    "test": "jest ./src",
+    "prepare": "husky install"
+  },
+  "keywords": [
+    "express",
+    "heroku"
+  ],
+  "author": "DougCoder64",
+  "license": "ISC",
+  "dependencies": {
+    "@types/cors": "^2.8.10",
+    "@types/pg": "^7.14.11",
+    "@types/ramda": "^0.27.47",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "husky": "^7.0.4",
+    "isomorphic-fetch": "^3.0.0",
+    "node-jose": "^2.0.0",
+    "pg": "^8.5.1",
+    "ramda": "^0.27.1",
+    "ts-node": "^10.9.1",
+    "typeorm": "^0.2.32",
+    "typeorm-fixtures-cli": "^1.9.1",
+    "typescript": "^4.4.4"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "@typescript-eslint/eslint-plugin": "^4.20.0",
+    "@typescript-eslint/parser": "^4.20.0",
+    "eslint": "^7.23.0",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "prettier": "^2.2.1",
+    "ts-jest": "^26.5.4",
+    "ts-node-dev": "^2.0.0"
+  }
+}
